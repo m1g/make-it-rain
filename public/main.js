@@ -2,29 +2,32 @@ const qs = s => document.querySelector(s)
 const drop = qs('.drop')
 
 const rainButton = () => {
-  const buttonAction = qs('.rainAction button')
-  buttonAction.setInterval(() => {
+  setInterval(() => {
     drop.style.top = '0px'
   }, 1000)
 
-  rainButton()
+  const animate = () => {
+    drop.style.top = `${parseInt(drop.style.top) + 1}px`
+  }
+
+  setInterval(animate, 16.66)
 }
 
-const resetDrop = () => {
-  if (drop.style.top === 100) {
-    clearInterval()
-  } else {
-    rainButton()
-  }
-}
+// const resetDrop = () => {
+//   if (drop.style.top === 100) {
+//     clearInterval()
+//   } else {
+//     rainButton()
+//   }
+// }
 
 const main = () => {
-  for (let i = 0; i < drop.length; i++) {
-    const li = document.createElement('li')
-    li.textContent = drop[i].addEventListener(rainButton)
-  }
-  drop.addEventListener('click', rainButton)
-  drop.addEventListener(resetDrop)
+  // for (let i = 0; i < drop.length; i++) {
+  //   const li = document.createElement('li')
+  //   li.textContent = drop[i].addEventListener(rainButton)
+  // }
+  qs('.rainBox button[name=rainAction]').addEventListener('click', rainButton)
+  // drop.addEventListener(resetDrop)
 }
 
 document.addEventListener('DOMContentLoaded', main)

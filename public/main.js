@@ -7,8 +7,10 @@ OBJECTIVES
 // Rain should stop/disappear at bottom of rainBox
 // Didn't figure out document.body.clientHeight
 // Want to try different speeds for droplets
-// Know for loop and if/else statement should be incuded
-// But not sure how or where (╯°□°)╯︵ ┻━┻
+// Know for loop should be in animate function
+// And if statement should be in the main function
+// But not sure how to implement (╯°□°)╯︵ ┻━┻
+// Should drop be a global variable?
 
 const qs = s => document.querySelector(s)
 
@@ -31,7 +33,7 @@ const rainButton = () => {
 
   setInterval(animate, 1)
 
-  const randomize = Math.floor(Math.random() * 550)
+  const randomize = Math.floor(Math.random() * 535)
   drop.style.left = `${randomize}px`
   console.log(randomize)
 }

@@ -6,7 +6,8 @@ html {
 }
 
 body {
-  background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry2.png');
+  background-image: url('geometry2.png');
+  background-repeat: repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,6 +25,11 @@ body {
   width: 550px;
   height: 350px;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.drop li {
+  position: absolute;
 }
 
 .drop {

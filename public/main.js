@@ -13,36 +13,35 @@ OBJECTIVES
 // Should drop be a global variable?
 
 const qs = s => document.querySelector(s)
+const qsa = s => document.querySelectorAll(s)
 
 const rainButton = () => {
   const drop = document.createElement('div')
   drop.className = 'drop'
-
   const img = document.createElement('img')
   img.src = 'droplet.svg'
 
   drop.appendChild(img)
   qs('.drop').appendChild(drop)
 
-  const animate = () => {
-    drop.style.top = `${parseInt(drop.style.top) + 1}px`
+  drop.style.top = 0
+  drop.style.left = `${Math.round(Math.random() * document.body.clientWidth)}px`
+}
+
+const animate = () => {
+  const drops = qsa('.drop')
+  for (var i = 0; i < drops.length; i++) {
+    const top = parseInt(drops[i].style.top)
+    if (top > 350) {
+      drops[i].style.top = 0
+    } else {
+      drops[i].style.top = `${top + 1}px`
+    }
   }
-  setInterval(() => {
-    drop.style.top = '0px'
-  }, 1000)
-
-  setInterval(animate, 1)
-
-  const randomize = Math.floor(Math.random() * 535)
-  drop.style.left = `${randomize}px`
-  console.log(randomize)
 }
 
 const main = () => {
-  // const rainDrops = qs('.rainBox button[name=rainAction]')
-  // for (var i = 0; i < rainDrops.length; i++) { // Drops multiple rain drops
-  //   rainDrops[i].addEventListener('button', rainButton)
-  // }
+  setInterval(animate, 16.6)
   qs('.rainBox button[name=rainAction]').addEventListener('click', rainButton)
 }
 

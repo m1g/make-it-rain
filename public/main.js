@@ -1,16 +1,7 @@
 /************
 OBJECTIVES
 ************/
-
-// Didn't figure out document.body.clientWidth
-// Need rain to fall full height of rainBox
-// Rain should stop/disappear at bottom of rainBox
-// Didn't figure out document.body.clientHeight
 // Want to try different speeds for droplets
-// Know for loop should be in animate function
-// And if statement should be in the main function
-// But not sure how to implement (╯°□°)╯︵ ┻━┻
-// Should drop be a global variable?
 
 const qs = s => document.querySelector(s)
 const qsa = s => document.querySelectorAll(s)
@@ -32,10 +23,11 @@ const animate = () => {
   const drops = qsa('.drop')
   for (var i = 0; i < drops.length; i++) {
     const top = parseInt(drops[i].style.top)
+    drops[i].style.top = `${top + 1}px`
     if (top > 350) {
       drops[i].style.top = 0
     } else {
-      drops[i].style.top = `${top + 1}px`
+      drops[i].style.top = `${top + 1}px` // loops the raindrop instead of removing
     }
   }
 }

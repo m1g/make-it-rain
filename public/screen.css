@@ -32,6 +32,12 @@ body {
   position: absolute;
 }
 
+.slidein {
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-iteration-count: 1;
+}
+
 .drop {
   position: absolute;
   display: hidden;
@@ -55,6 +61,7 @@ button {
   box-shadow: 2px 5px 2px rgba(110, 110, 110, 0.5);
   outline: none;
   cursor: pointer;
+  z-index: 1000;
 }
 
 button:active {
